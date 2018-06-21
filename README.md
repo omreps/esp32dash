@@ -17,8 +17,8 @@ It does this by using the Google charts. This code is made for the ESP32 and use
 # Installation instructions
 - Install the arduino-core for the ESP32.
 - Install the external libraries.
-- IDE configuration: Flash frequency 80 MHz, Flash size 4Mb(32Mb), Flash mode QIO, Upload speed is 115200.
-- Code configuration (Seach for the "<-----" string in esp32dash.ino): 
+- Configure IDE: Flash frequency 80 MHz, Flash size 4Mb(32Mb), Flash mode QIO, Upload speed is 115200.
+- Configure code | Seach for the "<-----" string in esp32dash.ino 
   - Set your Wi-Fi network SSID and PASS in the code. 
   - Set your Wi-Fi network IP, gate & mask, or set it to 0.0.0.0 for DHCP mode.
 - Connect ESP32 board to the PC via the best of your USB cables. 
