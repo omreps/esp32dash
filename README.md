@@ -1,6 +1,6 @@
 # Esp32dash
-The esp32dash is a code that enables your ESP32-device show in the web-browser its dashboard.
-For example for the connected sensors values & outputs state. 
+The esp32dash enables your ESP32 show the dashboard in the web-browser.
+For example for the connected sensors values & outputs states & variables and so on. 
 It does this by using the Google charts. This code is made for the ESP32 and use the [arduino-esp32](https://github.com/espressif/arduino-esp32).
 
 ![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/mock-up4-git.png)
