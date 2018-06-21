@@ -37,5 +37,5 @@ This firmware use the led on the ESP32 2-nd pin to indicate it's status:
   - fast blink for the 5 times: something wrong, can't connecting to the Wi-Fi.
 
 # Credits
-- [Hopperpop](https://github.com/Hopperpop) for the idea about how to bring things together making a web-server firmware for the ESP32.
+- [Hopperpop](https://github.com/Hopperpop) for his well-structured project [Sattrack](https://github.com/Hopperpop/Sattrack) gave me the idea about how to bring things together making a web-server firmware for the ESP32.
 
