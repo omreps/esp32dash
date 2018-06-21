@@ -2,9 +2,14 @@
 The esp32dash is a code that enables your ESP32-device show in the web-browser its dashboard.
 For example for the connected sensors values & outputs state. 
 It does this by using the Google charts. This code is made for the ESP32 and use the [arduino-core](https://github.com/espressif/arduino-esp32).
- 
+
+![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/mock-up4-git.png)
+
 # Hardware
 - ESP32-board, for example NodeMCU or other one
+
+![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/ESP32-chip-icon.png)
+
 
 # External libraries
 - [bbx10/WebServer_tng](https://github.com/bbx10/WebServer_tng)
@@ -33,5 +38,5 @@ This firmware use the led on the ESP32 2-nd pin to indicate it's status:
   - fast blink for the 5 times: something wrong, can't connecting to the Wi-Fi.
 
 # Credits
-- [Hopperpop](https://github.com/Hopperpop) for the idea about how to bring things together making a web-server firmware for the ESP32
+- [Hopperpop](https://github.com/Hopperpop) for the idea about how to bring things together making a web-server firmware for the ESP32.
 
