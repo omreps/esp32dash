@@ -4,7 +4,7 @@ For example for the connected sensors values & outputs state.
 It does this by using the Google charts. This code is made for the ESP32 and use the [arduino-core](https://github.com/espressif/arduino-esp32).
  
 # Hardware
-- ESP32-board, for example NodeMCU or other
+- ESP32-board, for example NodeMCU or other one
 
 # External libraries
 - [bbx10/WebServer_tng](https://github.com/bbx10/WebServer_tng)
