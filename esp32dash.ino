@@ -1,15 +1,16 @@
 /*
  Name:				esp32dash.ino
  Created:			6/21/2018
- Target hardware:	ESP32
+ Target hardware: ESP32
  Author:			0megaIT
+ Status:      Ready to use
 */
 
 #include <SPIFFS.h>
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WebServer.h>
-#include <ESPmDNS.h>
+//#include <ESPmDNS.h> TODO Add mDNS 
 #include <FS.h>
 #include <driver/adc.h>
 
