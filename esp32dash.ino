@@ -1,9 +1,9 @@
 /*
- Name:				esp32dash.ino
- Created:			6/21/2018
- Target hardware: ESP32
- Author:			0megaIT
- Status:      Ready to use
+ Name:            esp32dash.ino
+ Created:           6/21/2018
+ Target hardware:           ESP32
+ Author:            0megaIT
+ Status:            Ready to use
 */
 
 #include <SPIFFS.h>
