@@ -15,7 +15,7 @@
 
 #define BUILTIN_LED_PIN 2
 #define WIFI_TRY_COUNT 30
-#define MAX_DASH_ITEMS_COUNT 18
+#define MAX_DASH_ITEMS_COUNT 30
 
 #define WIFI 0
 #define MILLIS 1
@@ -238,17 +238,6 @@ String getContentType(String filename)
 {
 	if (server.hasArg("download")) return "application/octet-stream";
 	else if (filename.endsWith(".htm")) return "text/html";
-	else if (filename.endsWith(".html")) return "text/html";
-	else if (filename.endsWith(".css")) return "text/css";
-	else if (filename.endsWith(".js")) return "application/javascript";
-	else if (filename.endsWith(".png")) return "image/png";
-	else if (filename.endsWith(".gif")) return "image/gif";
-	else if (filename.endsWith(".jpg")) return "image/jpeg";
-	else if (filename.endsWith(".ico")) return "image/x-icon";
-	else if (filename.endsWith(".xml")) return "text/xml";
-	else if (filename.endsWith(".pdf")) return "application/x-pdf";
-	else if (filename.endsWith(".zip")) return "application/x-zip";
-	else if (filename.endsWith(".gz")) return "application/x-gzip";
 	return "text/plain";
 }
 
@@ -276,6 +265,22 @@ bool ServerInit()
 			server.send(404, "text/plain", "FileNotFound");
 	});
 	server.on("/", HTTP_GET, [](){if (!handleFileRead("/"))server.send(404, "text/plain", "FileNotFound");});  //open home page
+																											   //get heap status, analog input value and all GPIO statuses in one json call
+	server.on("/items", HTTP_GET, []()
+	{
+		String json = "[";
+		for(int i = 0; i < dashItemsCount; i++)
+		{
+			json += "{\"name\":\"" + String(dashItem[i].name) + "\", \"type\":" + String(dashItem[i].type) + ", \"iconUnicode\":" + String(dashItem[i].iconUnicode) + +", \"value\":" + String(dashItem[i].value) + "}";
+			if (i < dashItemsCount - 1)
+				json +=  ",";
+		}
+		json += "]";
+
+		server.send(200, "text/json", json);
+		json = String();
+	}); 
+	
 	server.begin();
 
 	Serial.println("---> Done: HTTP server started <---");
@@ -292,27 +297,27 @@ bool DashItemsInit()
 	//WiFi signal level
 	dashItem[dashItemsCount].type = WIFI;
 	strcpy(dashItem[dashItemsCount].name, "Wi-Fi");
-	dashItem[dashItemsCount].iconUnicode, 0xf1eb;
+	dashItem[dashItemsCount].iconUnicode = 61931;
 	dashItem[dashItemsCount].value = getWifiSignalLevel();
 	dashItemsCount++;
 
 	//Millis
 	dashItem[dashItemsCount].type = MILLIS;
 	strcpy(dashItem[dashItemsCount].name, "Millis");
-	dashItem[dashItemsCount].iconUnicode, 0xf017;
+	dashItem[dashItemsCount].iconUnicode = 61463;
 	dashItem[dashItemsCount].value = millis();
 	dashItemsCount++;
 
-	//Built in Hall sensor
+	//Built in Hall sensor as a sample
 	dashItem[dashItemsCount].type = HALL;
 	strcpy(dashItem[dashItemsCount].name, "Hall");
-	dashItem[dashItemsCount].iconUnicode, 0xf076;
+	dashItem[dashItemsCount].iconUnicode = 61558;
 	adc1_config_width(ADC_WIDTH_12Bit);
 	dashItem[dashItemsCount].value = hallRead();
 	dashItemsCount++;
 
 	//.....
-	//<----- Add your dashboard items (sensors, variables, output state and so on) initialization here
+	//<----- Add your dashboard items initialization here (sensors, variables, output states and so on) 
 	//.....
 
 	Serial.println("---> Done: Dash Items init <---");
