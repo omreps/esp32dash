@@ -10,7 +10,7 @@
 #include <SPIFFS.h>
 #include <WiFi.h>
 #include <WiFiClient.h>
-#include <WebServer.h>
+#include <WebServer.h> //External library, install it from https://github.com/bbx10/WebServer_tng
 #include <ESPmDNS.h>
 #include <FS.h>
 #include <driver/adc.h>
