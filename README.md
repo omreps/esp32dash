@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # esp32dash
 esp32dash enables your ESP32 show the dashboard in web-browser.
 For example for the connected sensors values & outputs states & variables and so on. 
