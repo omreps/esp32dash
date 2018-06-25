@@ -3,6 +3,7 @@
  Created:           6/21/2018
  Target hardware:   ESP32
  Author:            0megaIT
+ License:			MIT
  Status:            Ready to use
 */
 
@@ -10,13 +11,14 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WebServer.h>
-//#include <ESPmDNS.h> TODO Add mDNS 
+#include <ESPmDNS.h>
 #include <FS.h>
 #include <driver/adc.h>
 
 #define BUILTIN_LED_PIN 2
 #define WIFI_TRY_COUNT 30
 #define MAX_DASH_ITEMS_COUNT 30
+#define WIFI_CLIENT_DHCP 1
 
 #define WIFI 0
 #define MILLIS 1
@@ -24,6 +26,7 @@
 //<----- define your types here
 
 WebServer server(80);
+const char* host = "myESP32";
 
 int wifiIP[5];
 int wifiNetMask[5];
@@ -68,6 +71,13 @@ void setup()
 	esp32Started = true;
 
 	Serial.println("\n\n\n---> Done: ESP32 Started <---");
+	Serial.println("");
+	Serial.println("All is ready!");
+	Serial.println("Go to the esp32dash in a web-browser on your pc or mobile:");
+	Serial.print("http://"); Serial.println(WiFi.localIP()); 
+	Serial.println("or");
+	Serial.printf("http://%s.local \n", host); 
+	Serial.println("");
 }
 
 // the loop function runs over and over again until power down or reset
@@ -95,37 +105,38 @@ void loop()
 //----------------------------------------------------------- WI-FI INIT -----------------------------------------
 bool WiFiInit()
 {
-	strcpy(wifiSSID, "OMEGA");				//<-----Set your Wi-Fi network SSID
-	strcpy(wifiPASS, "essy123essy");		//<-----Set your Wi-Fi network PASS
+	strcpy(wifiSSID, "OMEGA");					//<-----Set your Wi-Fi network SSID
+	strcpy(wifiPASS, "essy123essy");			//<-----Set your Wi-Fi network PASS
 
 	Serial.println("Enabling Wi-Fi...");
 
 	WiFi.onEvent(WiFiEvent);
 	
-	IPAddress local_IP(192, 168, 1, 117);	//<-----Set any unoccupied IP 
-	IPAddress gateway(192, 168, 1, 1);		//<-----Set your network gateway
-	IPAddress subnet(255, 255, 255, 0);		//<-----Set your network subnet mask
+	if (!WIFI_CLIENT_DHCP)
+	{
+		IPAddress local_IP(192, 168, 1, 117);	//<-----Set any unoccupied IP 
+		IPAddress gateway(192, 168, 1, 1);		//<-----Set your network gateway
+		IPAddress subnet(255, 255, 255, 0);		//<-----Set your network subnet mask
 
-	IPAddress dns(8, 8, 8, 8); //Google Public DNS
+		IPAddress dns(8, 8, 8, 8);				//Google Public DNS
 
-	Serial.println("Network settings: ");
+		Serial.println("Network settings: ");
+
+		local_IP = IPAddress(local_IP[0], local_IP[1], local_IP[2], local_IP[3]);
+		Serial.print("IP: ");
+		Serial.println(local_IP);
+
+		gateway = IPAddress(gateway[0], gateway[1], gateway[2], gateway[3]);
+		Serial.print("Gateway: ");
+		Serial.println(gateway);
+
+		subnet = IPAddress(subnet[0], subnet[1], subnet[2], subnet[3]);
+		Serial.print("Subnet: ");
+		Serial.println(subnet);
+
+		WiFi.config(local_IP, gateway, subnet, dns);
+	}
 	
-	local_IP = IPAddress(local_IP[0], local_IP[1], local_IP[2], local_IP[3]);
-	Serial.print("IP: ");
-	Serial.println(local_IP);
-	
-	gateway = IPAddress(gateway[0], gateway[1], gateway[2], gateway[3]);
-	Serial.print("Gateway: ");
-	Serial.println(gateway);
-
-	subnet = IPAddress(subnet[0], subnet[1], subnet[2], subnet[3]);
-	Serial.print("Subnet: ");
-	Serial.println(subnet);
-
-	WiFi.config(local_IP, gateway, subnet, dns);
-
-	WiFi.mode(WIFI_STA);
-
 	Serial.printf("Connecting to %s\n", wifiSSID);
 
 	WiFi.begin(wifiSSID, wifiPASS);
@@ -143,6 +154,13 @@ bool WiFiInit()
 
 	if (WiFi.status() == WL_CONNECTED)
 	{
+		if (MDNS.begin(host))
+		{
+			Serial.println("mDNS responder started.");
+			Serial.println("(For the Windows OS under v.10, use a third-party, e.g. Apple Bonjour.)");
+
+		}
+
 		Serial.println("---> Done: Wi-Fi init <---");
 		BlinkWiFiClientStarted();
 		return true;
@@ -153,7 +171,6 @@ bool WiFiInit()
 		BlinkWiFiClientFailed();
 		return false;
 	}
-	
 }
 
 void BlinkWiFiClientStarted()
