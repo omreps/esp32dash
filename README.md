@@ -8,17 +8,13 @@ It does this by using the Google charts. This code is made for the ESP32 and use
 ![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/mock-up4-git.png)
 
 # Hardware
-- ESP32-board, for example NodeMCU or other one
+- ESP32-board
 
 ![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/ESP32-chip-icon.png)
 
-
-# External libraries
-- [bbx10/WebServer_tng](https://github.com/bbx10/WebServer_tng)
-
 # Installation instructions
 - Install the arduino-core for the ESP32.
-- Install the external libraries.
+- Install the external library: [bbx10/WebServer_tng](https://github.com/bbx10/WebServer_tng)
 - Configure IDE: Flash frequency 80 MHz, Flash size 4Mb(32Mb), Flash mode QIO, Upload speed is 115200.
 - Configure code - seach for the "<-----" string in esp32dash.ino 
   - Set your Wi-Fi network SSID and PASS in the code. 
