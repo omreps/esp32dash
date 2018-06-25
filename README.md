@@ -18,14 +18,14 @@ It does this by using the Google charts. This code is made for the ESP32 and use
 - Configure IDE: Flash frequency 80 MHz, Flash size 4Mb(32Mb), Flash mode QIO, Upload speed is 115200.
 - Configure code - seach for the "<-----" string in esp32dash.ino 
   - Set your Wi-Fi network SSID and PASS in the code. 
-  - Set your Wi-Fi network IP, gate & mask, or set it to 0.0.0.0 for DHCP mode.
+  - Set your Wi-Fi network IP, gate & mask, or leave as is for DHCP mode.
 - Connect ESP32 board to the PC via the best of your USB cables. 
 (it is very ! Important: Use the best USB-cable for the enough power supply.)
 - Compile and upload the code to your ESP32.
 - Upload the data to SPIFFS (see [here](https://github.com/me-no-dev/arduino-esp32fs-plugin) for more information).
 - Open the COM-port monitor if you want.
 - Wait until it connects to your Wi-Fi network. If your ESP32 board have the led on the 2-nd pin, it will blink 2 times.
-- Go to [http://esp32dash](http://esp32dash) and there you'll find the dashboard with a few bilt-in sensors values. 
+- Go to [http://myESP32.local](http://myESP32.local) and there you'll find the dashboard with a few bilt-in sensors values. 
 - Open the code again and add your live values to the dashItems array. Compile and upload the code to your ESP32.
 - Refresh the page in the browser. Your data will be shown on the dash.
 - We are the champions!
