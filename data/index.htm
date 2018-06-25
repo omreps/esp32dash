@@ -2,11 +2,13 @@
 <html manifest="site.appcache">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=550, initial-scale=0.65">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>esp32dash</title>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
 <style>
@@ -63,6 +65,10 @@
 .w3-btn-block.w3-disabled:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
 .w3-btn-block{width:100%}
 .w3-accordion-content{cursor:auto;display:none;position:relative;width:100%;margin:0;padding:16px}
+
+@media only screen and (max-width:1000px){.stars_displayed{display:none}}
+@media only screen and (min-width:1001px){.stars_displayed{}}
+
 </style>
 
 <script type="text/javascript">
@@ -458,6 +464,12 @@ function fnckShowLists(id) {
     <p>Report me issue on <a href="https://github.com/0megaIT/esp32dash/issues">esp32dash issues on github</a>. Attach as many info as you can - description, may be be screenshot and COM port output.</p>
 </div>
 
+<div class="w3-bottom stars_displayed w3-navbar w3-white w3-center">
+        <br>
+        <a class="github-button" href="https://github.com/0megaIt/esp32dash" data-icon="octicon-star" aria-label="Star 0megaIt/esp32dash on GitHub">Star</a>
+        <p id="stars" class="w3-small w3-center w3-text-grey">Like esp32dash? Star it on GitHub!</p>
+</div>
+
 <div class="masonry w3-margin-top w3-center">
 
 <div class="brick w3-left-align w3-card-4">
@@ -500,7 +512,7 @@ function fnckShowLists(id) {
 </div>
 
 <!---User's sensors template--->
-<div id="wtSensor" style="display:none" class="brick w3-left-align w3-card-4">
+<div id="wtSensor" style="display:none;" class="brick w3-left-align w3-card-4">
 	<header class="w3-container w3-light-grey">
     <h4 id="wtSensorName"></h4>
     </header>
