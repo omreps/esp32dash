@@ -10,15 +10,16 @@
 #include <SPIFFS.h>
 #include <WiFi.h>
 #include <WiFiClient.h>
-#include <WebServer.h> //External library, install it from https://github.com/bbx10/WebServer_tng
-#include <ESPmDNS.h>
+#include <WebServer.h>			//External library, install it from https://github.com/bbx10/WebServer_tng
 #include <FS.h>
 #include <driver/adc.h>
+#include <ESPmDNS.h>			//mDNS settings by default: http://myESP32.local open esp32dash page (for the Windows OS under v.10, use a third-party, e.g. Apple Bonjour)
+
+#define WIFI_CLIENT_DHCP 1		//1 - DHCP mode ON, 0 - DHCP mode OFF
 
 #define BUILTIN_LED_PIN 2
 #define WIFI_TRY_COUNT 30
 #define MAX_DASH_ITEMS_COUNT 30
-#define WIFI_CLIENT_DHCP 1
 
 #define WIFI 0
 #define MILLIS 1
@@ -112,7 +113,7 @@ bool WiFiInit()
 
 	WiFi.onEvent(WiFiEvent);
 	
-	if (!WIFI_CLIENT_DHCP)
+	if (!WIFI_CLIENT_DHCP)						///#define WIFI_CLIENT_DHCP 0 to disable DHCP mode and set IP's manually
 	{
 		IPAddress local_IP(192, 168, 1, 117);	//<-----Set any unoccupied IP 
 		IPAddress gateway(192, 168, 1, 1);		//<-----Set your network gateway
