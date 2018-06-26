@@ -31,7 +31,7 @@ It does this by using the Google charts. This code is made for the ESP32 and use
 - We are the champions!
 
 # Status indicators
-This firmware use the led on the ESP32 2-nd pin to indicate it's status:
+This firmware use the led on the ESP32 GPIO2 to indicate it's status:
 - On startup
   - normal blink for the 2 times: Wi-Fi founded and device connected as a client.
   - fast blink for the 5 times: something wrong, can't connecting to the Wi-Fi.
