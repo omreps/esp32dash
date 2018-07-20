@@ -2,7 +2,7 @@
 
 # esp32dash
 
-(cc) esp32dash is an independently working part of the project ESP32FREE (free web-server for esp32, www.esp32free.com)
+(cc) esp32dash is an independently working part of the ESP32FREE project | www.esp32free.com - free web-server for esp32
 
 esp32dash enables your ESP32 show the dashboard in web-browser.
 For example for the connected sensors values & outputs states & variables and so on. 
