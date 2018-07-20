@@ -2,7 +2,7 @@
 
 # esp32dash
 
-esp32dash is an open-source independently working part of the ESP32FREE project.
+esp32dash is an open-source independently working part of the ESP32FREE project
 
 (cc) ESP32FREE is a free web-server firmware for ESP32 prototyping | www.esp32free.com
 
