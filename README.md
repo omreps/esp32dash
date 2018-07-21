@@ -1,9 +1,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# esp32dash
-
 ![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/mock-up4-git.png)
 
+# esp32dash
 
 esp32dash is an open-source independently working part of the ESP32FREE project
 
