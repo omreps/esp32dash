@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/mock-up4-git.png)
+![alt text](https://github.com/omreps/esp32dash/blob/master/img/mock-up4-git.png)
 
 # esp32dash
 
@@ -15,7 +15,7 @@ It does this by using the Google charts. This code is made for the ESP32 and use
 # Hardware
 - ESP32-board
 
-![alt text](https://github.com/0megaIT/esp32dash/blob/master/img/ESP32-chip-icon.png)
+![alt text](https://github.com/omreps/esp32dash/blob/master/img/ESP32-chip-icon.png)
 
 # Installation instructions
 - Install the arduino-core for the ESP32.
