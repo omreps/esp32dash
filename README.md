@@ -1,12 +1,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![alt text](https://github.com/omreps/esp32dash/blob/master/img/mock-up4-git.png)
-
 # esp32dash
 
 esp32dash is an open-source independently working part of the ESP32FREE project
 
-(cc) ESP32FREE is a free web-server firmware for ESP32 prototyping | www.esp32free.com
+(cc) ESP32FREE is a free web-server firmware for ESP32 prototyping | www.esp32free.com 
+
+![alt text](https://github.com/omreps/esp32dash/blob/master/img/mock-up4-git.png)
 
 esp32dash enables your ESP32 show the dashboard in web-browser.
 For example for the connected sensors values & outputs states & variables and so on. 
